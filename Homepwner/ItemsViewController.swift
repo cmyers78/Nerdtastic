@@ -17,6 +17,19 @@ class ItemsViewController : UITableViewController {
         let insets = UIEdgeInsets(top: statusBarHeigh, left: 0, bottom: 0, right: 0)
         tableView.contentInset = insets
         tableView.scrollIndicatorInsets = insets
+        
+        tableView.rowHeight = UITableViewAutomaticDimension // default
+        tableView.estimatedRowHeight = 65
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowItem" {
+            if let row = tableView.indexPathForSelectedRow?.row {
+                let item = itemStore.allItems[row]
+                let detailViewController = segue.destination as! DetailViewController
+                detailViewController.item = item 
+            }
+        }
     }
     
     @IBAction func adddNewItem(sender: AnyObject) {
@@ -48,10 +61,13 @@ extension ItemsViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        // let cell = UITableViewCell(style: .value1, reuseIdentifier: "UITableViewCell")
-        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath) as! ItemCell
+        cell.updateLabels()
+        
         let item = itemStore.allItems[indexPath.row]
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = "$\(item.valueInDollars)"
+        cell.nameLabel.text = item.name
+        cell.serialNumberLabel.text = item.serialNumber
+        cell.valueLabel.text = ("$\(item.valueInDollars)")
         return cell 
     }
     
