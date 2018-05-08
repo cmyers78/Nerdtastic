@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Items View Controller-->
+        <!--Homepwner-->
         <scene sceneID="JQS-mA-RUZ">
             <objects>
                 <tableViewController id="MUI-ib-FHC" customClass="ItemsViewController" customModule="Homepwner" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,38 +19,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="OZj-ix-xjd">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dxT-aT-WHA">
-                                    <rect key="frame" x="8" y="15" width="175.5" height="30"/>
-                                    <state key="normal" title="Edit"/>
-                                    <connections>
-                                        <action selector="toggleEditingModeWithSender:" destination="MUI-ib-FHC" eventType="touchUpInside" id="le7-dO-2RR"/>
-                                    </connections>
-                                </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9xl-vb-qDh">
-                                    <rect key="frame" x="191.5" y="15" width="175.5" height="30"/>
-                                    <state key="normal" title="Add"/>
-                                    <connections>
-                                        <action selector="adddNewItemWithSender:" destination="MUI-ib-FHC" eventType="touchUpInside" id="Vmf-OD-PMK"/>
-                                    </connections>
-                                </button>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <constraints>
-                                <constraint firstItem="dxT-aT-WHA" firstAttribute="centerY" secondItem="OZj-ix-xjd" secondAttribute="centerY" id="Dcu-va-k1M"/>
-                                <constraint firstItem="dxT-aT-WHA" firstAttribute="leading" secondItem="OZj-ix-xjd" secondAttribute="leading" constant="8" id="HSG-cF-MqX"/>
-                                <constraint firstItem="9xl-vb-qDh" firstAttribute="centerY" secondItem="OZj-ix-xjd" secondAttribute="centerY" id="Md7-u4-scA"/>
-                                <constraint firstItem="9xl-vb-qDh" firstAttribute="leading" secondItem="dxT-aT-WHA" secondAttribute="trailing" constant="8" id="k0j-5X-Hnn"/>
-                                <constraint firstAttribute="trailing" secondItem="9xl-vb-qDh" secondAttribute="trailing" constant="8" id="rRq-Ke-tNg"/>
-                                <constraint firstItem="9xl-vb-qDh" firstAttribute="width" secondItem="dxT-aT-WHA" secondAttribute="width" id="ued-UV-aJq"/>
-                            </constraints>
-                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="65" id="o6q-25-63C" customClass="ItemCell" customModule="Homepwner" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="88" width="375" height="65"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o6q-25-63C" id="8wJ-ef-Kcf">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="64.5"/>
@@ -98,7 +69,13 @@
                             <outlet property="delegate" destination="MUI-ib-FHC" id="HMT-ec-I3T"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="skq-43-oiY"/>
+                    <navigationItem key="navigationItem" title="Homepwner" id="skq-43-oiY">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="4wL-Dx-XdW">
+                            <connections>
+                                <action selector="adddNewItemWithSender:" destination="MUI-ib-FHC" id="q1T-S8-Ypi"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bRI-nu-VEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,6 +106,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="wgx-lv-3qc" id="BmR-GM-Wa3"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -146,6 +126,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="wgx-lv-3qc" id="L8P-HN-QDd"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -163,6 +146,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="wgx-lv-3qc" id="VSV-4q-HhE"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -180,6 +166,7 @@
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="bUf-CR-aHF" firstAttribute="leading" secondItem="Rvz-pT-WVp" secondAttribute="leading" id="3fM-8O-3hT"/>
                             <constraint firstItem="bUf-CR-aHF" firstAttribute="top" secondItem="Rvz-pT-WVp" secondAttribute="top" constant="8" id="99s-uM-qvP"/>
@@ -187,6 +174,9 @@
                             <constraint firstItem="Rvz-pT-WVp" firstAttribute="trailing" secondItem="bUf-CR-aHF" secondAttribute="trailing" id="dVJ-th-DYP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rvz-pT-WVp"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="60i-Tf-Lrb" appends="YES" id="7cd-Q3-CoW"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="dateLabel" destination="Sba-Uy-ARG" id="jvD-c7-lth"/>
@@ -196,6 +186,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tlH-OD-WHf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="60i-Tf-Lrb">
+                    <connections>
+                        <action selector="backgroundTapped:" destination="wgx-lv-3qc" id="3gd-wW-tvC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1696.8" y="120.98950524737631"/>
         </scene>
